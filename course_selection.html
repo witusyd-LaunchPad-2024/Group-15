@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Education &mdash; Course Selection</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+	<meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+	<meta name="author" content="freehtml5.co" />
+  	
+    <!-- Facebook and Twitter integration -->
+      <meta property="og:title" content=""/>
+      <meta property="og:image" content=""/>
+      <meta property="og:url" content=""/>
+      <meta property="og:site_name" content=""/>
+      <meta property="og:description" content=""/>
+      <meta name="twitter:title" content="" />
+      <meta name="twitter:image" content="" />
+      <meta name="twitter:url" content="" />
+      <meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="css/magnific-popup.css">
+
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Pricing -->
+	<link rel="stylesheet" href="css/pricing.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+
+    
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="top-menu">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-2">
+						<div id="fh5co-logo"><a href="index.html"><i class="icon-study"></i>BRAINWAVE<span>.</span></a></div>
+					</div>
+					<div class="col-xs-10 text-right menu-1">
+						<ul>
+							<li class="active"><a href="index.html">Home</a></li>
+							<li><a href="course_selection.html">Course Selection Advice</a></li>
+							<li><a href="tutor.html">Tutor</a></li>
+							<li><a href="planning.html">Planning</a></li>
+							<li class="btn-cta"><a href="#"><span>Login</span></a></li>
+							<li class="btn-cta"><a href="#"><span>Create a Course</span></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</nav>
+
+	<!-- Custom Course Selection Section -->
+	<div id="fh5co-course">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
+					<h2>Course Selection Advice</h2>
+					<p>Please enter your degree, year, and semester to get course recommendations.</p >
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<form id="courseForm" class="fh5co-form">
+                        
+                        <!-- Select degree type -->
+                        <div class="form-group">
+							<label for="degreeType" class="sr-only">Degree Type:</label>
+							<select id="degreeType" name="degreeType" class="form-control" required onchange="populateDegrees()">
+								<option value="" disabled selected>Select Degree Type</option>
+								<option value="bachelor">Bachelor</option>
+								<option value="master">Master</option>
+							</select>
+						</div>
+
+                         <!-- Select degree -->
+                         <div class="form-group">
+							<label for="degree" class="sr-only">Degree:</label>
+							<select id="degree" name="degree" class="form-control" required>
+								<option value="" disabled selected>Select Degree</option>
+							</select>
+						</div>
+
+                         <!-- Select year -->
+						<div class="form-group">
+							<label for="year" class="sr-only">Year:</label>
+							<select id="year" name="year" class="form-control" required>
+								<option value="" disabled selected>Select Year</option>
+								<option value="1">First Year</option>
+								<option value="2">Second Year</option>
+								<option value="3">Third Year</option>
+								<option value="4">Fourth Year</option>
+							</select>
+						</div>
+
+                       <!-- Select semester -->
+						<div class="form-group">
+							<label for="semester" class="sr-only">Semester:</label>
+							<select id="semester" name="semester" class="form-control" required>
+								<option value="" disabled selected>Select Semester</option>
+								<option value="1">Semester 1</option>
+								<option value="2">Semester 2</option>
+							</select>
+						</div>
+
+                        <!-- Add space between the button and the course list -->
+						<div class="form-group" style="margin-bottom: 100px;">
+							<button type="button" class="btn btn-primary btn-block" onclick="getCourseSuggestions()">Get Course Recommendations</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+            <!-- Course Recommendations Display -->
+            <div id="courseSuggestions" class="row" style="display: none;">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h1>Recommended Courses</h1>
+                    <div class="course-list">
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('comp5310')">COMP5310: Principles of Data Science</button>
+                        <div id="comp5310" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5310" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Requires knowledge of machine learning and data structures.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> Data mining libraries (e.g., Scikit-learn, TensorFlow) and big data tools (e.g., Hadoop, Spark).</p>
+                        </div>
+
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('comp5318')">COMP5318: Machine Learning and Data Mining</button>
+                        <div id="comp5318" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5318" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Basic statistics, linear algebra, calculus, and Python programming.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> Scikit-learn, TensorFlow, Python 3.x, Jupyter Notebook。</p>
+                        </div>
+
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('stat5003')">STAT5003: Computational Statistical Methods</button>
+                        <div id="stat5003" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/STAT5003" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Probability theory and statistics, basic programming in Python or R.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> R or Python (with libraries like Pandas, NumPy, and SciPy)</p>
+                        </div>
+
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('comp5048')">COMP5048: Visual Analytics</button>
+                        <div id="comp5048" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5048" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Basic HCI concepts, data visualization principles, Python programming.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> Tableau, Python 3.x, Seaborn。</p>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Additional Course Options -->
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h3>Other Options</h3>
+                    <div class="course-list">
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('info5990')">INFO5990: Professional Practice in IT</button>
+                        <div id="info5990" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5990" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Basic project management knowledge and conflict resolution.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> None.</p>
+                        </div>
+                        
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('comp5046')">COMP5046: Natural Language Processing</button>
+                        <div id="comp5046" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5046" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Strong background in machine learning and programming (Python).</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> NLP libraries (like spaCy, NLTK, or Transformers), Python and Jupyter notebooks.</p>
+                        </div>
+            
+                        <button class="btn btn-secondary btn-lg btn-block" onclick="toggleDetails('info5992')">INFO5992: Understanding IT Innovations</button>
+                        <div id="info5992" class="details" style="display: none; background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin-top: 10px;">
+                            <p style="text-align: left;"><strong>Credits: </strong>6</p>
+                            <p style="text-align: left;"><strong>Course Details: </strong>
+                                <a href="https://www.sydney.edu.au/units/COMP5992" target="_blank">Click here for course details</a>
+                            </p>
+                            <p style="text-align: left;"><strong>Prerequisites: </strong> Basic IT concepts.</p>
+                            <p style="text-align: left;"><strong>Required Tools: </strong> None.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+	<footer id="fh5co-footer" role="contentinfo" style="background-image: url(images/img_bg_4.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-3 fh5co-widget">
+					<h3>About Education</h3>
+					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p >
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Learning</h3>
+					<ul class="fh5co-footer-links">
+						<li>Course</li>
+						<li>Blog</li>
+						<li>Contact</li>
+						<li>Terms</li>
+						<li>Meetups</li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Learn &amp; Grow</h3>
+					<ul class="fh5co-footer-links">
+						<li>Blog</li>
+						<li>Privacy</li>
+						<li>Testimonials</li>
+						<li>Handbook</li>
+						<li>Held Desk</li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Engage us</h3>
+					<ul class="fh5co-footer-links">
+						<li>Marketing</li>
+						<li>Visual Assistant</li>
+						<li>System Analysis</li>
+						<li>Advertise</li>
+					</ul>
+				</div>
+
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
+					<h3>Legal</h3>
+					<ul class="fh5co-footer-links">
+						<li>Find Designers</li>
+						<li>Find Developers</li>
+						<li>Teams</li>
+						<li>Advertise</li>
+						<li>API</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
+						<small class="block">Designed by  Demo Images:  &amp; </small>
+					</p >
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<!-- jQuery and other scripts -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="js/jquery.countTo.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/simplyCountdown.js"></script>
+	<script src="js/main.js"></script>
+	<script>
+		// Populate degrees based on the degree type selected
+		function populateDegrees() {
+			const degreeType = document.getElementById("degreeType").value;
+			const degreeSelect = document.getElementById("degree");
+			degreeSelect.innerHTML = '<option value="" disabled selected>Select Degree</option>'; // Clear current options
+
+			const bachelorDegrees = [
+                'Bachelor of Arts','Bachelor of Economics','Bachelor of Social Work','Bachelor of International and Global Studies','Bachelor of Commerce',
+                'Bachelor of Business','Bachelor of Science','Bachelor of Medical Science','Bachelor of Design in Architecture','Bachelor of Urbanism'
+			];
+
+			const masterDegrees = [
+                'Master of Arts',
+                'Master of Social Work',
+                'Master of Economics',
+                'Master of Public Policy',
+                'Master of Engineering',
+                'Master of Data Science',
+                'Master of Business Administration (MBA)',
+                'Master of International Business',
+                'Master of Science in Medicine (Clinical Epidemiology)',
+                'Master of Architecture'
+			];
+
+			let options = '';
+			if (degreeType === 'bachelor') {
+				options = bachelorDegrees.map(degree => `<option value="${degree}">${degree}</option>`).join('');
+			} else if (degreeType === 'master') {
+				options = masterDegrees.map(degree => `<option value="${degree}">${degree}</option>`).join('');
+			}
+
+			degreeSelect.innerHTML += options;
+		}
+
+		// Show or hide course details
+		function toggleDetails(courseId) {
+			const course = document.getElementById(courseId);
+			course.style.display = course.style.display === 'none' ? 'block' : 'none';
+		}
+
+		// Get course suggestions
+		function getCourseSuggestions() {
+			const degree = document.getElementById('degree').value;
+			const year = document.getElementById('year').value;
+			const semester = document.getElementById('semester').value;
+
+			// Simple example: show course list
+			if (degree && year && semester) {
+				document.getElementById('courseSuggestions').style.display = 'block';
+			} else {
+				alert('Please enter complete information to get course recommendations');
+			}
+		}
+	</script>
+	</body>
+</html>
